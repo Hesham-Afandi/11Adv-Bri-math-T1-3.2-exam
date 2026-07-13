@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Grade 11 Advanced Math - Lesson 2: Degrees and Radians (T1-3.2-exam)</title>
+    <title>🧮 Degrees and Radians Exam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         body.en-mode { font-family: 'Inter', sans-serif; }
@@ -25,7 +25,7 @@
             position: fixed; top: 16px; left: 16px; z-index: 100;
             background: white; padding: 6px; border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-            border: 2px solid #0d9488;
+            border: 2px solid #4f46e5;
         }
         [dir="ltr"] .lang-switch { left: auto; right: 16px; }
         .lang-btn {
@@ -33,8 +33,8 @@
             transition: all 0.3s; border: none; font-size: 0.875rem;
             background: transparent; color: #6b7280;
         }
-        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
-        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .lang-btn.active { background: #4f46e5; color: white; box-shadow: 0 2px 6px rgba(79,70,229,0.4); }
+        .lang-btn:hover:not(.active) { background: #eef2ff; color: #4f46e5; }
         .shuffle-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
     </style>
-<script src="/_aistudio-iframe.js"></script></head>
+</head>
 <body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
     <div class="lang-switch no-print">
@@ -56,24 +56,24 @@
     </div>
 
     <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
-        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-indigo-100">
             <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
-            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span id="timer" class="text-2xl font-bold text-indigo-600 font-mono">60:00</span>
             <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
         </div>
     </div>
 
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="toggleAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
         <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
-        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
     </div>
 
-    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-indigo-600">
         <div class="text-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الحادي عشر متقدم" data-en="⚡ Grade 11 Advanced Mathematics">⚡ رياضيات الصف الحادي عشر متقدم</h1>
-            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس الثاني: الدرجات والراديان (الفصل الدراسي الأول)" data-en="Lesson 2: Degrees and Radians (Term 1)">الدرس الثاني: الدرجات والراديان (الفصل الدراسي الأول)</h2>
-            <p class="text-sm text-gray-600 mt-2" data-ar="التحويل بين الدرجات والراديان، وإيجاد الزوايا المتشاركة والمرجعية، وحساب طول القوس ومساحة القطاع الدائري." data-en="Converting between degrees and radians, finding coterminal and reference angles, calculating arc length and area of a sector.">التحويل بين الدرجات والراديان، وإيجاد الزوايا المتشاركة والمرجعية، وحساب طول القوس ومساحة القطاع الدائري.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="🧮 امتحان الدرجات والراديان" data-en="🧮 Degrees and Radians Exam">🧮 امتحان الدرجات والراديان</h1>
+            <h2 class="text-lg text-indigo-600 font-semibold" data-ar="Degrees and Radians" data-en="Degrees and Radians">Degrees and Radians</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="أسئلة تغطي: الزوايا وقياساتها والوضع القياسي، التحويل بين الدرجات والراديان وصيغة DMS، الزوايا المشتركة في ضلع الانتهاء، طول القوس ومساحة القطاع، والسرعة الخطية والسرعة الزاوية" data-en="Covers: Angles & Their Measures / Standard Position, Converting Degrees–Radians & DMS Form, Coterminal Angles, Arc Length & Sector Area, and Linear & Angular Speed">أسئلة تغطي: الزوايا وقياساتها والوضع القياسي، التحويل بين الدرجات والراديان وصيغة DMS، الزوايا المشتركة في ضلع الانتهاء، طول القوس ومساحة القطاع، والسرعة الخطية والسرعة الزاوية</p>
             <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
         </div>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -94,7 +94,7 @@
     <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
         <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
         <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-indigo-700">-</p></div>
             <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
             <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
         </div>
@@ -107,29 +107,29 @@
             <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
-                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الزوايا وقياساتها والوضع القياسي" data-en="Angles & Their Measures / Standard Position">الزوايا وقياساتها والوضع القياسي</span>
+                    <span id="sec1-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
-                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="التحويل بين الدرجات والراديان وصيغة DMS" data-en="Converting Degrees–Radians & DMS Form">التحويل بين الدرجات والراديان وصيغة DMS</span>
+                    <span id="sec2-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
-                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الزوايا المشتركة في ضلع الانتهاء" data-en="Coterminal Angles">الزوايا المشتركة في ضلع الانتهاء</span>
+                    <span id="sec3-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
-                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="طول القوس ومساحة القطاع" data-en="Arc Length & Sector Area">طول القوس ومساحة القطاع</span>
+                    <span id="sec4-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
-                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="السرعة الخطية والسرعة الزاوية" data-en="Linear & Angular Speed">السرعة الخطية والسرعة الزاوية</span>
+                    <span id="sec5-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
             </div>
         </div>
         <div class="text-center mb-6">
-            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
             <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
         </div>
         <div class="flex gap-3 justify-center">
@@ -138,10 +138,11 @@
     </div>
 
     <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-        © <span data-ar="رياضيات الصف 11 متقدم | الدرس الثاني: الدرجات والراديان" data-en="Grade 11 Advanced Math | Lesson 2: Degrees and Radians">رياضيات الصف 11 متقدم | الدرس الثاني: الدرجات والراديان</span> | Platform 4U Education
+        © <span data-ar="Degrees and Radians" data-en="Degrees and Radians">Degrees and Radians</span> | Mr. Mohammed Hesham
     </footer>
 
 <script>
+// ==================== EmailJS Settings ====================
 const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
 const SERVICE_ID = "service_w15m64i";
 const TEMPLATE_ID = "template_5b0u2tq";
@@ -150,629 +151,254 @@ const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
 const originalExamData = {
-    "sections": [
+    sections: [
         {
-            "id": "sec1",
-            "title": {
-                "ar": "🔹 الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-                "en": "🔹 Part 1: Basic Concepts, Rules, and Definitions"
-            },
-            "questions": [
+            id: 'sec1',
+            title: { ar: '🔹 الجزء الأول: الزوايا وقياساتها والوضع القياسي', en: '🔹 Part 1: Angles & Their Measures / Standard Position' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 1: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 1: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 1",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 1"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 1",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 1"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 1",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 1"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 1",
-                            "en": "Option D) A value outside the range of sine or cosine 1"
-                        }
+                    q: { ar: 'في المستوى الإحداثي، متى يُقال إن الزاوية في "وضع قياسي"؟', en: 'In the coordinate plane, when is an angle said to be in "standard position"?' },
+                    options: [
+                        { ar: 'عندما يقع رأسها عند نقطة الأصل ويقع ضلع ابتدائها على المحور الأفقي x', en: 'When its vertex lies at the origin and its initial side lies on the positive x-axis' },
+                        { ar: 'عندما يقع رأسها عند أي نقطة وضلع ابتدائها على المحور y', en: 'When its vertex lies anywhere and its initial side lies on the y-axis' },
+                        { ar: 'عندما تكون الزاوية قائمة دائماً', en: 'When the angle is always a right angle' },
+                        { ar: 'عندما يكون ضلعا الزاوية متطابقين', en: 'When both sides of the angle coincide' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الزاوية في المستوى الإحداثي تكون في وضع قياسي عندما يقع رأسها عند نقطة الأصل ويقع ضلع الابتداء لها على المحور الأفقي x', en: 'An angle in the coordinate plane is in standard position when its vertex lies at the origin and its initial side lies on the positive x-axis' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 2: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 2: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 2",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 2"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 2",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 2"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 2",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 2"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 2",
-                            "en": "Option D) A value outside the range of sine or cosine 2"
-                        }
+                    q: { ar: 'من وجهة النظر الديناميكية للزاوية، ماذا يمثل موقع الشعاع بعد الدوران؟', en: 'From the dynamic view of an angle, what does the position of the ray after rotation represent?' },
+                    options: [
+                        { ar: 'ضلع الانتهاء للزاوية', en: 'The terminal side of the angle' },
+                        { ar: 'ضلع الابتداء للزاوية', en: 'The initial side of the angle' },
+                        { ar: 'رأس الزاوية', en: 'The vertex of the angle' },
+                        { ar: 'محيط الزاوية', en: 'The perimeter of the angle' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يكوّن موقع بداية الشعاع ضلع الابتداء للزاوية، بينما يكوّن موقع الشعاع بعد الدوران ضلع الانتهاء للزاوية', en: "The ray's starting position forms the angle's initial side, while its position after rotation forms the terminal side" }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 3: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 3: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 3",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 3"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 3",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 3"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 3",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 3"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 3",
-                            "en": "Option D) A value outside the range of sine or cosine 3"
-                        }
+                    q: { ar: 'أي دوران ينتج عنه زاوية موجبة؟', en: 'Which direction of rotation produces a positive angle?' },
+                    options: [
+                        { ar: 'الدوران عكس عقارب الساعة', en: 'Counterclockwise rotation' },
+                        { ar: 'الدوران في اتجاه عقارب الساعة', en: 'Clockwise rotation' },
+                        { ar: 'أي دوران بمقدار 90° فقط', en: 'Only a 90° rotation' },
+                        { ar: 'لا علاقة للدوران بإشارة الزاوية', en: 'The rotation direction has no relation to the angle sign' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تنشأ الزاوية الموجبة عن الدوران عكس عقارب الساعة، بينما تنشأ الزاوية السالبة عن الدوران في اتجاه عقارب الساعة', en: 'A positive angle results from counterclockwise rotation, while a negative angle results from clockwise rotation' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 4: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 4: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 4",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 4"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 4",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 4"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 4",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 4"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 4",
-                            "en": "Option D) A value outside the range of sine or cosine 4"
-                        }
+                    q: { ar: 'وحدة الدرجة (°) تساوي أي جزء من الدورة الكاملة حول الرأس؟', en: 'The degree unit (°) equals what fraction of one complete rotation about the vertex?' },
+                    options: [
+                        { ar: '1/360 من الدورة الكاملة عكس عقارب الساعة', en: '1/360 of a complete counterclockwise rotation' },
+                        { ar: '1/180 من الدورة الكاملة', en: '1/180 of a complete rotation' },
+                        { ar: '1/60 من الدورة الكاملة', en: '1/60 of a complete rotation' },
+                        { ar: 'الدورة الكاملة نفسها', en: 'The complete rotation itself' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدرجة (°) تساوي 1/360 من دورة كاملة (عكس عقارب الساعة) حول الرأس، فـ 360° تمثل دورة كاملة واحدة', en: 'A degree (°) equals 1/360 of one complete counterclockwise rotation about the vertex, so 360° represents one full rotation' }
                 }
             ]
         },
         {
-            "id": "sec2",
-            "title": {
-                "ar": "🔹 الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-                "en": "🔹 Part 2: Calculations and Exact Numerical Solutions"
-            },
-            "questions": [
+            id: 'sec2',
+            title: { ar: '🔹 الجزء الثاني: التحويل بين الدرجات والراديان وصيغة DMS', en: '🔹 Part 2: Converting Degrees–Radians & DMS Form' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 5: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزوايا المتشاركة في الوضع القياسي للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 5: In the trigonometry and periodic functions lesson, solve the problem regarding الزوايا المتشاركة في الوضع القياسي to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 5",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 5"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 5",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 5"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 5",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 5"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 5",
-                            "en": "Option D) A value outside the range of sine or cosine 5"
-                        }
+                    q: { ar: 'كيف يُعرَّف قياس الراديان θ لزاوية مركزية في دائرة نصف قطرها r؟', en: 'How is the radian measure θ of a central angle in a circle of radius r defined?' },
+                    options: [
+                        { ar: 'يساوي نسبة طول القوس المحصور s إلى نصف القطر r، أي θ = s/r', en: 'It equals the ratio of the intercepted arc length s to the radius r, i.e. θ = s/r' },
+                        { ar: 'يساوي حاصل ضرب طول القوس s في نصف القطر r', en: 'It equals the arc length s multiplied by the radius r' },
+                        { ar: 'يساوي محيط الدائرة مقسوماً على القطر', en: 'It equals the circumference divided by the diameter' },
+                        { ar: 'يساوي مساحة الدائرة مقسومة على r', en: 'It equals the area of the circle divided by r' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزوايا المتشاركة في الوضع القياسي بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزوايا المتشاركة في الوضع القياسي while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'قياس الراديان θ للزاوية المركزية يساوي نسبة طول القوس المحصور s لنصف القطر r للدائرة: θ = s/r', en: 'The radian measure θ of a central angle equals the ratio of the intercepted arc length s to the radius r: θ = s/r' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 6: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزوايا المتشاركة في الوضع القياسي للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 6: In the trigonometry and periodic functions lesson, solve the problem regarding الزوايا المتشاركة في الوضع القياسي to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 6",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 6"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 6",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 6"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 6",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 6"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 6",
-                            "en": "Option D) A value outside the range of sine or cosine 6"
-                        }
+                    q: { ar: 'اكتب القياس 56.735° في صيغة DMS (درجة، دقيقة، وثانية) لأقرب جزء من المئة، كما في المثال المحلول.', en: 'Write 56.735° in DMS form (degree, minute, second) to the nearest hundredth, as in the worked example.' },
+                    options: [
+                        { ar: '56° 44′ 6″', en: "56° 44′ 6″" },
+                        { ar: '56° 73′ 5″', en: "56° 73′ 5″" },
+                        { ar: '56° 7′ 35″', en: "56° 7′ 35″" },
+                        { ar: '57° 44′ 6″', en: "57° 44′ 6″" }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزوايا المتشاركة في الوضع القياسي بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزوايا المتشاركة في الوضع القياسي while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بتحويل 0.735° إلى دقائق ثم 0.1′ الناتجة إلى ثوانٍ، تكون 56.735° = 56° 44′ 6″', en: 'Converting 0.735° to minutes and the resulting 0.1′ to seconds gives 56.735° = 56° 44′ 6″' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 7: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزوايا المتشاركة في الوضع القياسي للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 7: In the trigonometry and periodic functions lesson, solve the problem regarding الزوايا المتشاركة في الوضع القياسي to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 7",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 7"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 7",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 7"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 7",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 7"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 7",
-                            "en": "Option D) A value outside the range of sine or cosine 7"
-                        }
+                    q: { ar: 'ما القاعدة الصحيحة للتحويل من الدرجات إلى الراديان؟', en: 'What is the correct rule for converting from degrees to radians?' },
+                    options: [
+                        { ar: 'اضرب قياس الدرجة في (π راديان / 180°)', en: 'Multiply the degree measure by (π radians / 180°)' },
+                        { ar: 'اضرب قياس الدرجة في (180° / π راديان)', en: 'Multiply the degree measure by (180° / π radians)' },
+                        { ar: 'اجمع 180 إلى قياس الدرجة', en: 'Add 180 to the degree measure' },
+                        { ar: 'اقسم قياس الدرجة على 2π', en: 'Divide the degree measure by 2π' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزوايا المتشاركة في الوضع القياسي بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزوايا المتشاركة في الوضع القياسي while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'للتحويل من الدرجات إلى الراديان، اضرب في (π راديان / 180°)؛ وللتحويل من الراديان إلى الدرجة، اضرب في (180° / π راديان)', en: 'To convert degrees to radians, multiply by (π radians / 180°); to convert radians to degrees, multiply by (180° / π radians)' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 8: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزوايا المتشاركة في الوضع القياسي للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 8: In the trigonometry and periodic functions lesson, solve the problem regarding الزوايا المتشاركة في الوضع القياسي to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 8",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 8"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 8",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 8"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 8",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 8"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 8",
-                            "en": "Option D) A value outside the range of sine or cosine 8"
-                        }
+                    q: { ar: 'حوّل قياس الراديان 5π/6 إلى درجات.', en: 'Convert the radian measure 5π/6 to degrees.' },
+                    options: [
+                        { ar: '150°', en: '150°' },
+                        { ar: '108°', en: '108°' },
+                        { ar: '300°', en: '300°' },
+                        { ar: '75°', en: '75°' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزوايا المتشاركة في الوضع القياسي بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزوايا المتشاركة في الوضع القياسي while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: '5π/6 راديان × (180°/π راديان) = 150°', en: '5π/6 radians × (180°/π radians) = 150°' }
                 }
             ]
         },
         {
-            "id": "sec3",
-            "title": {
-                "ar": "🔹 الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-                "en": "🔹 Part 3: Advanced Skills, Applications, and Problems"
-            },
-            "questions": [
+            id: 'sec3',
+            title: { ar: '🔹 الجزء الثالث: الزوايا المشتركة في ضلع الانتهاء', en: '🔹 Part 3: Coterminal Angles' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 9: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ حساب طول قوس الدائرة ومساحة القطاع للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 9: In the trigonometry and periodic functions lesson, solve the problem regarding حساب طول قوس الدائرة ومساحة القطاع to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 9",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 9"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 9",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 9"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 9",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 9"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 9",
-                            "en": "Option D) A value outside the range of sine or cosine 9"
-                        }
+                    q: { ar: 'ما تعريف "الزوايا المشتركة في ضلع الانتهاء"؟', en: 'What is the definition of "coterminal angles"?' },
+                    options: [
+                        { ar: 'زاويتان لهما نفس ضلعي الابتداء والانتهاء لكن قياساتهما مختلفة', en: 'Two angles that share the same initial and terminal sides but have different measures' },
+                        { ar: 'زاويتان متكاملتان مجموعهما 90°', en: 'Two angles that are complementary, summing to 90°' },
+                        { ar: 'زاويتان متتامتان مجموعهما 180°', en: 'Two angles that are supplementary, summing to 180°' },
+                        { ar: 'زاويتان متطابقتان في القياس فقط', en: 'Two angles equal in measure only' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ حساب طول قوس الدائرة ومساحة القطاع بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of حساب طول قوس الدائرة ومساحة القطاع while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الزوايا المشتركة في ضلع الانتهاء هي زوايا يكون لها نفس ضلعي الابتداء والانتهاء ولكن تختلف قياساتها بمضاعفات صحيحة لدورة كاملة', en: 'Coterminal angles are angles that have the same initial and terminal sides but whose measures differ by integer multiples of a full rotation' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 10: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ حساب طول قوس الدائرة ومساحة القطاع للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 10: In the trigonometry and periodic functions lesson, solve the problem regarding حساب طول قوس الدائرة ومساحة القطاع to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 10",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 10"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 10",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 10"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 10",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 10"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 10",
-                            "en": "Option D) A value outside the range of sine or cosine 10"
-                        }
+                    q: { ar: 'إذا كان α هو قياس زاوية بالدرجات، فما صيغة كل الزوايا المشتركة معها في ضلع الانتهاء؟', en: 'If α is the degree measure of an angle, what is the formula for all angles coterminal with it?' },
+                    options: [
+                        { ar: 'α + n·360°، حيث n عدد صحيح', en: 'α + n·360°, where n is an integer' },
+                        { ar: 'α × n·360°، حيث n عدد صحيح', en: 'α × n·360°, where n is an integer' },
+                        { ar: 'α + 90°', en: 'α + 90°' },
+                        { ar: 'α − n·180°، حيث n عدد صحيح فقط موجب', en: 'α − n·180°, where n is a positive integer only' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ حساب طول قوس الدائرة ومساحة القطاع بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of حساب طول قوس الدائرة ومساحة القطاع while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'إذا كان α هو قياس الزاوية بالدرجات، فكل الزوايا التي قياسها α + n·360°، حيث n عدد صحيح، تشترك في ضلع الانتهاء مع α', en: 'If α is the degree measure of an angle, all angles measuring α + n·360°, where n is an integer, are coterminal with α' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 11: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ حساب طول قوس الدائرة ومساحة القطاع للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 11: In the trigonometry and periodic functions lesson, solve the problem regarding حساب طول قوس الدائرة ومساحة القطاع to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 11",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 11"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 11",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 11"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 11",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 11"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 11",
-                            "en": "Option D) A value outside the range of sine or cosine 11"
-                        }
+                    q: { ar: 'ما الصيغة المكافئة لإيجاد الزوايا المشتركة في ضلع الانتهاء عند القياس بالراديان؟', en: 'What is the equivalent formula for finding coterminal angles when measured in radians?' },
+                    options: [
+                        { ar: 'α + 2nπ، حيث n عدد صحيح', en: 'α + 2nπ, where n is an integer' },
+                        { ar: 'α + nπ، حيث n عدد صحيح', en: 'α + nπ, where n is an integer' },
+                        { ar: '2α + n', en: '2α + n' },
+                        { ar: 'α/2n', en: 'α/2n' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ حساب طول قوس الدائرة ومساحة القطاع بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of حساب طول قوس الدائرة ومساحة القطاع while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'إذا كانت α هي قياس الزاوية بالراديان، فكل الزوايا التي قياسها α + 2nπ، حيث n عدد صحيح، تشترك في ضلع الانتهاء مع α', en: 'If α is the radian measure of an angle, all angles measuring α + 2nπ, where n is an integer, are coterminal with α' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 12: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ حساب طول قوس الدائرة ومساحة القطاع للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 12: In the trigonometry and periodic functions lesson, solve the problem regarding حساب طول قوس الدائرة ومساحة القطاع to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 12",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 12"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 12",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 12"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 12",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 12"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 12",
-                            "en": "Option D) A value outside the range of sine or cosine 12"
-                        }
+                    q: { ar: 'جد زاوية موجبة مشتركة في ضلع الانتهاء مع 45° باستخدام n = 1، كما في المثال المحلول.', en: 'Find a positive coterminal angle with 45° using n = 1, as in the worked example.' },
+                    options: [
+                        { ar: '405°', en: '405°' },
+                        { ar: '360°', en: '360°' },
+                        { ar: '90°', en: '90°' },
+                        { ar: '315°', en: '315°' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ حساب طول قوس الدائرة ومساحة القطاع بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of حساب طول قوس الدائرة ومساحة القطاع while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: '45° + 360°(1)° = 45° + 360° = 405°', en: '45° + 360°(1)° = 45° + 360° = 405°' }
                 }
             ]
         },
         {
-            "id": "sec4",
-            "title": {
-                "ar": "🔹 الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-                "en": "🔹 Part 4: Mathematical Modeling, Graphing, and Practical Problems"
-            },
-            "questions": [
+            id: 'sec4',
+            title: { ar: '🔹 الجزء الرابع: طول القوس ومساحة القطاع', en: '🔹 Part 4: Arc Length & Sector Area' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 13: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزاوية المرجعية في الأرباع الأربعة للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 13: In the trigonometry and periodic functions lesson, solve the problem regarding الزاوية المرجعية في الأرباع الأربعة to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 13",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 13"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 13",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 13"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 13",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 13"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 13",
-                            "en": "Option D) A value outside the range of sine or cosine 13"
-                        }
+                    q: { ar: 'ما صيغة طول القوس s المحصور بزاوية مركزية θ (بالراديان) في دائرة نصف قطرها r؟', en: 'What is the formula for arc length s subtended by a central angle θ (in radians) in a circle of radius r?' },
+                    options: [
+                        { ar: 's = rθ', en: 's = rθ' },
+                        { ar: 's = r + θ', en: 's = r + θ' },
+                        { ar: 's = r/θ', en: 's = r/θ' },
+                        { ar: 's = r²θ', en: 's = r²θ' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزاوية المرجعية في الأرباع الأربعة بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزاوية المرجعية في الأرباع الأربعة while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'طول القوس المحصور s في دائرة نصف قطرها r بزاوية مركزية θ مقيسة بالراديان يُحسب بالصيغة s = rθ', en: 'The intercepted arc length s in a circle of radius r with central angle θ measured in radians is given by s = rθ' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 14: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزاوية المرجعية في الأرباع الأربعة للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 14: In the trigonometry and periodic functions lesson, solve the problem regarding الزاوية المرجعية في الأرباع الأربعة to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 14",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 14"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 14",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 14"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 14",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 14"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 14",
-                            "en": "Option D) A value outside the range of sine or cosine 14"
-                        }
+                    q: { ar: 'جد طول القوس المحصور لزاوية مركزية قياسها π/4 راديان في دائرة نصف قطرها 5 سم، مقرباً لأقرب جزء من عشرة.', en: 'Find the arc length for a central angle of π/4 radians in a circle with radius 5 cm, rounded to the nearest tenth.' },
+                    options: [
+                        { ar: '≈ 3.9 سم', en: '≈ 3.9 cm' },
+                        { ar: '≈ 5.0 سم', en: '≈ 5.0 cm' },
+                        { ar: '≈ 1.3 سم', en: '≈ 1.3 cm' },
+                        { ar: '≈ 7.9 سم', en: '≈ 7.9 cm' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزاوية المرجعية في الأرباع الأربعة بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزاوية المرجعية في الأرباع الأربعة while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 's = rθ = 5(π/4) = 5π/4 ≈ 3.9 سم', en: 's = rθ = 5(π/4) = 5π/4 ≈ 3.9 cm' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 15: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزاوية المرجعية في الأرباع الأربعة للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 15: In the trigonometry and periodic functions lesson, solve the problem regarding الزاوية المرجعية في الأرباع الأربعة to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 15",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 15"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 15",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 15"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 15",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 15"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 15",
-                            "en": "Option D) A value outside the range of sine or cosine 15"
-                        }
+                    q: { ar: 'ما صيغة مساحة القطاع الدائري A لدائرة نصف قطرها r وزاوية مركزية θ بالراديان؟', en: 'What is the formula for the area A of a circular sector with radius r and central angle θ in radians?' },
+                    options: [
+                        { ar: 'A = (1/2) r² θ', en: 'A = (1/2) r² θ' },
+                        { ar: 'A = r² θ', en: 'A = r² θ' },
+                        { ar: 'A = (1/2) r θ', en: 'A = (1/2) r θ' },
+                        { ar: 'A = π r² θ', en: 'A = π r² θ' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزاوية المرجعية في الأرباع الأربعة بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزاوية المرجعية في الأرباع الأربعة while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'مساحة القطاع الدائري A لها نصف قطر r وزاوية مركزية θ (بالراديان) تُحسب بالصيغة A = (1/2) r² θ', en: 'The area A of a circular sector with radius r and central angle θ (in radians) is given by A = (1/2) r² θ' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 16: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ الزاوية المرجعية في الأرباع الأربعة للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 16: In the trigonometry and periodic functions lesson, solve the problem regarding الزاوية المرجعية في الأرباع الأربعة to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 16",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 16"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 16",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 16"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 16",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 16"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 16",
-                            "en": "Option D) A value outside the range of sine or cosine 16"
-                        }
+                    q: { ar: 'جد مساحة قطاع دائري زاويته المركزية 7π/8 ونصف قطره 3 سم، مقرباً لأقرب جزء من عشرة.', en: 'Find the area of a circular sector with central angle 7π/8 and radius 3 cm, rounded to the nearest tenth.' },
+                    options: [
+                        { ar: '≈ 12.4 سم²', en: '≈ 12.4 cm²' },
+                        { ar: '≈ 8.2 سم²', en: '≈ 8.2 cm²' },
+                        { ar: '≈ 21.2 سم²', en: '≈ 21.2 cm²' },
+                        { ar: '≈ 6.7 سم²', en: '≈ 6.7 cm²' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ الزاوية المرجعية في الأرباع الأربعة بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of الزاوية المرجعية في الأرباع الأربعة while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'A = (1/2)(3)²(7π/8) = 63π/16 ≈ 12.4 سم²', en: 'A = (1/2)(3)²(7π/8) = 63π/16 ≈ 12.4 cm²' }
                 }
             ]
         },
         {
-            "id": "sec5",
-            "title": {
-                "ar": "🔹 الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي",
-                "en": "🔹 Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-            },
-            "questions": [
+            id: 'sec5',
+            title: { ar: '🔹 الجزء الخامس: السرعة الخطية والسرعة الزاوية', en: '🔹 Part 5: Linear & Angular Speed' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 17: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 17: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 17",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 17"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 17",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 17"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 17",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 17"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 17",
-                            "en": "Option D) A value outside the range of sine or cosine 17"
-                        }
+                    q: { ar: 'كيف تُعرَّف السرعة الزاوية ω لجسم يدور حول نقطة ثابتة خلال زمن t بزاوية دوران θ (بالراديان)؟', en: 'How is the angular speed ω of a body rotating about a fixed point defined, given a rotation angle θ (in radians) over time t?' },
+                    options: [
+                        { ar: 'ω = θ/t', en: 'ω = θ/t' },
+                        { ar: 'ω = t/θ', en: 'ω = t/θ' },
+                        { ar: 'ω = θ × t', en: 'ω = θ × t' },
+                        { ar: 'ω = r/t', en: 'ω = r/t' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'السرعة الزاوية ω للجسم الذي يتحرك بزاوية دوران θ (بالراديان) خلال الزمن t تُحسب بالصيغة ω = θ/t', en: 'The angular speed ω of a body rotating through an angle θ (in radians) during time t is given by ω = θ/t' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 18: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 18: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 18",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 18"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 18",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 18"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 18",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 18"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 18",
-                            "en": "Option D) A value outside the range of sine or cosine 18"
-                        }
+                    q: { ar: 'كيف تُعرَّف السرعة الخطية v لجسم يتحرك بسرعة ثابتة على ممر دائري نصف قطره r، إذا كان s طول القوس المقطوع خلال الزمن t؟', en: 'How is the linear speed v of a body moving at constant speed along a circular path of radius r defined, given s is the arc length traveled in time t?' },
+                    options: [
+                        { ar: 'v = s/t', en: 'v = s/t' },
+                        { ar: 'v = t/s', en: 'v = t/s' },
+                        { ar: 'v = s × t', en: 'v = s × t' },
+                        { ar: 'v = r × t', en: 'v = r × t' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'السرعة الخطية v تساوي طول القوس المقطوع s مقسوماً على الزمن t، أي v = s/t، وبما أن s = rθ فإن v = rθ/t', en: 'The linear speed v equals the arc length s traveled divided by the time t, i.e. v = s/t, and since s = rθ, v = rθ/t' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 19: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 19: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 19",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 19"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 19",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 19"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 19",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 19"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 19",
-                            "en": "Option D) A value outside the range of sine or cosine 19"
-                        }
+                    q: { ar: 'دراجة تدور إطاراتها بمعدل 140 دورة في الدقيقة. ما السرعة الزاوية للإطار بالراديان لكل دقيقة تقريباً؟', en: "A bicycle's tires rotate at 140 revolutions per minute. What is the tire's approximate angular speed in radians per minute?" },
+                    options: [
+                        { ar: '280π ≈ 879.6 راديان/دقيقة', en: '280π ≈ 879.6 rad/min' },
+                        { ar: '140π ≈ 439.8 راديان/دقيقة', en: '140π ≈ 439.8 rad/min' },
+                        { ar: '70π ≈ 219.9 راديان/دقيقة', en: '70π ≈ 219.9 rad/min' },
+                        { ar: '360π ≈ 1130.9 راديان/دقيقة', en: '360π ≈ 1130.9 rad/min' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بما أن كل دورة تمثل 2π راديان، فإن 140 دورة تماثل θ = 2π × 140 = 280π راديان، وبما أن t = 1 دقيقة فإن ω = 280π ≈ 879.6 راديان لكل دقيقة', en: 'Since each revolution is 2π radians, 140 revolutions correspond to θ = 2π × 140 = 280π radians, and with t = 1 minute, ω = 280π ≈ 879.6 rad/min' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 20: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ التحويل بين الدرجات والراديان للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 20: In the trigonometry and periodic functions lesson, solve the problem regarding التحويل بين الدرجات والراديان to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 20",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 20"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 20",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 20"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 20",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 20"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 20",
-                            "en": "Option D) A value outside the range of sine or cosine 20"
-                        }
+                    q: { ar: 'إطار نصف قطره 38.1 سم يدور بمعدل 2.5 دورة كل ثانية. ما السرعة الخطية للإطار بالسنتيمتر لكل ثانية؟', en: 'A tire with radius 38.1 cm rotates at 2.5 revolutions per second. What is the linear speed of the tire in centimeters per second?' },
+                    options: [
+                        { ar: '38.1(5π) ≈ 190.5π سم/ثانية', en: '38.1(5π) ≈ 190.5π cm/s' },
+                        { ar: '38.1(2.5) = 95.25 سم/ثانية', en: '38.1(2.5) = 95.25 cm/s' },
+                        { ar: '38.1/5π سم/ثانية', en: '38.1/5π cm/s' },
+                        { ar: '2.5π سم/ثانية', en: '2.5π cm/s' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ التحويل بين الدرجات والراديان بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of التحويل بين الدرجات والراديان while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدوران 2.5 دورة يماثل زاوية θ = 2π × 2.5 = 5π راديان، وبما أن v = rθ/t مع r = 38.1 سم و t = 1 ثانية، فإن v = 38.1(5π) ≈ 190.5π سم/ثانية', en: 'A rotation of 2.5 revolutions corresponds to θ = 2π × 2.5 = 5π radians, and since v = rθ/t with r = 38.1 cm and t = 1 second, v = 38.1(5π) ≈ 190.5π cm/s' }
                 }
             ]
         }
@@ -818,6 +444,8 @@ function prepareShuffledExam() {
             globalIdx++;
         });
     });
+    
+    console.log('✅ تم خلط الأسئلة والخيارات بنجاح');
 }
 
 function reshuffleExam() {
@@ -854,8 +482,8 @@ function setLanguage(lang) {
 function renderExam() {
     const container = document.getElementById('exam-content');
     const labels = {
-        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
-        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' }
     };
     const lbl = labels[currentLang];
     const isRTL = currentLang === 'ar';
@@ -866,13 +494,13 @@ function renderExam() {
     examData.sections.forEach((section) => {
         html += `
         <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">${section.title[currentLang]}</h2>
             <ol class="space-y-4 text-sm">`;
             
         section.questions.forEach((q) => {
             const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
             html += `
-                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                <li class="${borderSide} border-indigo-500 py-2" id="q-${globalIdx}">
                     <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
                     
             q.options.forEach((opt, oIdx) => {
@@ -937,17 +565,15 @@ function gradeExam() {
                 correctCount++;
                 li.classList.add('correct');
                 li.classList.remove('incorrect');
-            } else {
-                li.classList.add('incorrect');
-                li.classList.remove('correct');
-            }
-
-            if (isCorrect) {
+                
                 if (i < 4) sec1++;
                 else if (i < 8) sec2++;
                 else if (i < 12) sec3++;
                 else if (i < 16) sec4++;
                 else sec5++;
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
             }
         }
     }
@@ -955,7 +581,7 @@ function gradeExam() {
     const score = (correctCount / 20) * 100;
     const successRate = Math.round(score);
     
-    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
     document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     
@@ -1000,43 +626,31 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
 
     const sectionNames = {
-        ar: [
-            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
-        ],
-        en: [
-            "Part 1: Basic Concepts, Rules, and Definitions",
-            "Part 2: Calculations and Exact Numerical Solutions",
-            "Part 3: Advanced Skills, Applications, and Problems",
-            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
-            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-        ]
+        ar: ['الزوايا وقياساتها والوضع القياسي', 'التحويل بين الدرجات والراديان وصيغة DMS', 'الزوايا المشتركة في ضلع الانتهاء', 'طول القوس ومساحة القطاع', 'السرعة الخطية والسرعة الزاوية'],
+        en: ['Angles & Their Measures / Standard Position', 'Converting Degrees–Radians & DMS Form', 'Coterminal Angles', 'Arc Length & Sector Area', 'Linear & Angular Speed']
     };
     const currentSectionNames = sectionNames[currentLang];
 
     let answersHTML = `
-        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: ${currentLang === 'ar' ? 'right' : 'left'};">
-            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
-                <h2 style="margin: 0; font-size: 22px;">⚡ ${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'رياضيات الصف الحادي عشر متقدم | الفصل الدراسي الأول' : 'Grade 11 Advanced Math | Term 1'}</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};">
+            <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">🧮 ${currentLang === 'ar' ? 'نتيجة امتحان الدرجات والراديان' : 'Degrees and Radians Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'Degrees and Radians' : 'Degrees and Radians'}</p>
                 <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 ${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
             </div>
             
-            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+            <div style="background: #eef2ff; padding: 15px; border: 1px solid #c7d2fe;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
                         <td style="padding: 8px;">${name}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
                         <td style="padding: 8px;">${studentClass}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
                         <td style="padding: 8px;">${date}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
                         <td style="padding: 8px;">${badge}</td>
                     </tr>
                 </table>
@@ -1044,7 +658,7 @@ function sendResultsToEmail() {
 
             <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">${score}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #4f46e5;">${score}</div>
                     <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
                 </div>
                 <div style="display: inline-block; margin: 0 15px;">
@@ -1054,16 +668,16 @@ function sendResultsToEmail() {
             </div>
 
             <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
-                ${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+                📝 ${currentLang === 'ar' ? 'تفاصيل الإجابات' : 'Answer Details'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #0d9488; color: white;">
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    <tr style="background: #4f46e5; color: white;">
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1106,7 +720,7 @@ function sendResultsToEmail() {
                 </tbody>
             </table>
 
-            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #4f46e5;">
                 📊 ${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -1128,7 +742,7 @@ function sendResultsToEmail() {
         answersHTML += `
             <tr style="background: ${rowBg};">
                 <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">${currentSectionNames[i]}</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #4f46e5;">
                     ${sectionScores[i]} / ${sectionTotals[i]}
                 </td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb;">
